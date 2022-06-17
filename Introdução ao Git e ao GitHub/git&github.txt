@@ -1,0 +1,212 @@
+GIT & GITHUB
+
+Controle de versionamento de código distribuido - criado por Linus Torvalds
+Criador do Linux - Linus Torvalds
+git && github  - são diferentes, porém complementares
+
+1 - controle de versao
+2 - armazenamento em nuvem
+3 - trabalho em equipe
+4 - melhorar o seu codigo
+5 - reconhecimento
+
+GUI X CLI
+
+comandos básicos para navegar pelo prompt de comando 
+
+LISTAR no Prompt de Comando
+Win 	- dir  
+Linux	- ls
+ls -l  -> lista arquivos com detalhes  e previlégios
+man ls -> para saber as opções de saida e escrita do terminal 
+ls --help comandos em portugues
+voltar para o diretorio pessoal --> cd ~
+exibe todos os comandos utilizados --> history
+atalhos no terminal -> seta para cima  
+ultimo comando digitado no terminal --> !!
+ctrl + C 	->cancela o comando atual em funcionamento
+ctrl + z	->Pausa o comando atual, em primeiro ou segundo plano
+ctrl + d	->faz logout da sessão atual
+ctrl + w	->apaga uma palavra na linha atual
+ctrl + U	->Apaga a linha inteira
+ctrl + R	->busca um comando recente
+!!			->repete o último comando
+exit		-> sair do terminal
+
+mv 			-> move a pasta 
+mv antigo novo -> renomeia
+mv dir/~ 	-> move o diretorio para o diretorio pessoal
+man comando -> exibe o manual do comando
+ls ~		-> lista toda a sua pasta pessoal 
+touch (nome do arquivo).(extensão do arquivo)	-> cria arquivo vazio
+cp -> faz copia do arquivo
+clear -> limpa o terminal
+rmdir -> remove diretorios
+rm -r -> remove os diretorios e tudo que tiver dentro
+r = recursivo - força 
+ctrl + alt + t  -> abre o terminal Linux
+
+Voltar para a base do diretorio(voltar para pasta C:/)
+Win 	- cd /
+Linux	- cd /
+
+Para voltar um nível da navegação
+Win 	- cd ..
+Linux	- cd ..
+
+para limpar terminal
+Win 	- cls
+Linux	- clear
+
+para entrar dentro de uma pasta
+Win 	- cd (nome da pasta) - cd Windows
+Linux	- cd (nome da pasta) - cd Windows
+
+para criar uma pasta
+Win 	- mkdir (nome da pasta) - mkdir workspace
+Linux	- mkdir (nome da pasta) - mkdir workspace
+
+print na tela o que tiver dps do echo
+Win 	- echo (digite algo) - echo hello
+Linux 	- echo (digite algo) - echo hello
+
+Joga o print da tela dentro de um arquivo TXT, se não existir o arquivo ele cria e guarda.
+não esquecendo de estar dentro da pasta que foi criada no passo anterior
+Win 	- echo hello > hello.txt
+Linux	- echo hello > hello.txt
+
+Comando para deletar pasta voltar para pasta base (C)
+del workspace ---
+Win 	- rmdir (nome da pasta) /S /Q - rmdir workspace /S /Q
+Linux	- rm -rf (nome da pasta) - rm -rf workspace
+rf = recursive force, recursive para todo o que a pasta tiver lá dentro e force para nao pedir confirmação
+
+para ver a versão do git
+git --version 
+
+SHA1
+Um algoritmo de Hash seguro - Secure Hash Algorithm, é um conjunto de funções Hash criptogáficas
+projetadas pela Agencia de Segurança Nacional dos EUA(NSA). 
+encriptação gera um conjunto de characteres identificador de 40 dígitos ele é único.
+
+abrir o comando git bash here
+e colocar:  openssl sha1 (nome do arquivo) aparece um código de identificação 
+
+Objetos fundamentais 
+BLOBs
+trees
+commits
+
+commit --> tree --> blob
+
+Sistema Distribuído
+
+Segurança 
+
+
+
+
+GIT 
+
+$ ssh-keygen -t ed25519 -C laishsat@hotmail.com
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/laish/.ssh/id_ed25519):
+123456
+para voltar ate a pasta raiz
+cd /
+Navegar até o diretório
+cd /c/Users/laish/.ssh
+Listar 
+ls 
+mostra o caminho dos diretorios
+pwd 
+
+abrir o arquivo publico copiar o conteúdo e levar para o repositório no git
+cat id_ed25519.pub
+
+dentro do repositorio no git, ir em settings 
+do lado esquerdo ir em "ssh and GPG keys" -> "New ssh key"
+colocar um "Title" -> como alias ex.. minha maquina XXX
+colar a o id do id_ed25519.pub e "add ssh key"
+
+ssh -agent -s 
+ssh-add id_ed255919
+
+git init 	-> iniciar repositorio no git
+.git 		-> ls -a 
+a flag "-a" mostra os arquivos ocultos
+
+git config --global user.email "laishsat@...com" -> colocar o email 
+git config --global user.name "Laishsat"  -> para colocar o nickname
+
+git add (nome do arquivo).(extensão do arquivo)	-> para adicionaro arquivo no staged do commit
+git add (nome do arquivo).(extensão do arquivo) (nome da pasta nova)/ -> criamos e movemos o arquivo para dentro da pasta nova
+exemplo ----- > git add strogonoff.md receitas/
+git rm (nome do arquivo).(extensão do arquivo)-> para remover da area de staged
+git resotore --staged (nome do arquivo) para tirar da area de stage
+git commit -m "commit inicial" 	-> manda o arquivo para o repositoório.
+git add * --> para adicionar todos os arquivos de uma mesma extensão no staged 
+git add . --> para adicionar todos os arquivos no staged
+
+Para alterar email do usuario, nome e verificar a conta vinculada no git 
+git config --list -> para verificar as informações da conta do git
+git config --global --unset user.email --> para descvincular seu email  
+git config --global --unset user.nickname --> para descvincular seu nome
+
+git config --global user.email "asdasdasd@aaa.com" --> para cadastrar o email novamente
+git config --global user.nome "ahsudhausdhausdh" --> para colocar o nome de novo
+
+adicionar a origin para onde estamos enviando o arquivo
+git remote add origin (link)
+ver a lista no repositorio que estão cadastradas
+git remote -v 
+
+origin <- é apenas um apenas apelido
+master <- é a branch que estamos enviando o código
+git push origin master  ------(pede autenticação as vezes)
+
+o readme. extensao que fica dentro da pasta no git aparece na primeira parte mostrando o que tem
+dentro da pasta.
+
+para atualizar com o último código do repositório
+git pull origin master
+
+
+
+----------------------------------------------------------------------------------------------------------
+git remote add capturas https://github.com/LaisHatsumiSato/capturas.git
+direcionando para uma pasta dentro do git
+capturas -> é o nome da pasta no repositorio
+https://github.com/LaisHatsumiSato/capturas.git -> link que foi gerado no git
+
+git push --set-upstream https://github.com/LaisHatsumiSato/capturas.git master
+para subir os arquivos no git 
+
+no arquivo que está clonado
+$ code .  -> o prompt de comando, abre o vscode
+
+git status -> mostrar o status do respositório
+
+prepara o conteúdo testado para o próximo commit - envia para repositorio local
+git add index.html -> informar ao GIT para monitorar os arquivos em questão
+
+git commit -m "nosso pirimeiro commit" -> enviar as modificações para o repositorio local
+
+git push -> enviar as modificações do rep local  para rep remoto
+
+git commit -m "alterando arquivo index.html"
+
+git checkout -b nova-branch -> aponta para uma branch, nova ou outra já existente
+
+git  push --set-upstream origin nova-branch
+
+
+-b -> para criar
+
+git checkout master -> para trocar para a branch principal
+git checkout main
+
+git merge nova-branch -> junta as duas branchs
+
+volta
+git reset --hard d2cf8183e9e352fe4adf6ba9215487346a0c2e56
