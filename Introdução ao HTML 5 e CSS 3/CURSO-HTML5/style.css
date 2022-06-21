@@ -42,6 +42,7 @@ a {
     margin: 0;
     margin-bottom: 15px;
     text-transform: capitalize;
+    text-align: justify;
 }
 
 .post_image{
